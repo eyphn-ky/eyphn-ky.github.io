@@ -174,7 +174,18 @@ $(function(){
 			});
 		}
 	});
-	
-	
-	
 });
+function calculateDuration(month,year) {
+    const start = new Date(year, month - 1);
+	const today = new Date();
+
+	let years = today.getFullYear() - start.getFullYear();
+	let months = today.getMonth() - start.getMonth();
+
+	if (months < 0) {
+		years--;
+		months += 12;
+	}
+
+	return `${years} years and ${months} months`;
+}
